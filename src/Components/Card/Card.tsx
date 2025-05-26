@@ -1,10 +1,8 @@
 import React from 'react'
 
-type Props = {
 
-}
 
-const Card = (props: Props) => {
+const Card = () => {
   return (
     <div className='card'>
         <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fupward-trend&psig=AOvVaw07whuI5k3uBI5dpeoaJRJ4&ust=1748345762228000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIDL9dyFwY0DFQAAAAAdAAAAABAL" alt="image" />
