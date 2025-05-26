@@ -4,7 +4,7 @@ type LayoutProps = {
     children: React.ReactNode;
 }
 
-const layout = ({children}: LayoutProps) => {
+const Layout = ({children}: LayoutProps) => {
   return (
     <div className='w-full'>
         <div className='w-[70%] mx-auto flex flex-col'>
@@ -16,4 +16,4 @@ const layout = ({children}: LayoutProps) => {
   )
 }
 
-export default layout
+export default Layout
