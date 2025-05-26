@@ -1,11 +1,12 @@
-import React from 'react'
-
 
 
 const Card = () => {
   return (
-    <div className='card'>
-        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fupward-trend&psig=AOvVaw07whuI5k3uBI5dpeoaJRJ4&ust=1748345762228000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIDL9dyFwY0DFQAAAAAdAAAAABAL" alt="image" />
+    <div className='className="flex flex-col items-center justify-between w-full p-6 bg-slate-100 rounded-lg md:flex-row"'>
+        <img 
+          src="https://static.thenounproject.com/png/2629071-200.png" 
+          alt="image" 
+        />
         <div className='details'>
             <h2>$AAPL</h2>
             <p>$110</p>
