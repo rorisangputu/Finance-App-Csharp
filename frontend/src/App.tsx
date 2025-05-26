@@ -1,7 +1,8 @@
 
 import "./App.css";
 import Card from "./Components/Card/Card";
-import Layout from "./layout/layout";
+import Layout from "./layout/Layout";
+
 
 function App() {
   return (
