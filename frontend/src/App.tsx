@@ -1,6 +1,5 @@
-
 import "./App.css";
-import Card from "./Components/Card/Card";
+import CardList from "./Components/CardList/CardList";
 import Layout from "./layout/Layout";
 
 
@@ -10,7 +9,7 @@ function App() {
       <Layout>
         <main>
           <h1 className="">Olaaa</h1>
-          <Card/>
+          <CardList/>
         </main>
       </Layout>
     </>
