@@ -1,6 +1,10 @@
+interface Props {
+   companyName: string;
+   ticker: string;
+   price: number;
+}
 
-
-const Card = () => {
+const Card = ({companyName, ticker, price}: Props) => {
   return (
     <div className='className="flex flex-col items-center justify-between w-full p-6 bg-slate-100 rounded-lg md:flex-row"'>
         <img 
@@ -8,8 +12,9 @@ const Card = () => {
           alt="image" 
         />
         <div className='details'>
-            <h2>$AAPL</h2>
-            <p>$110</p>
+            <h1>{companyName}</h1>
+            <h2>${ticker}</h2>
+            <p>${price}</p>
         </div>
         <p className='info'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
