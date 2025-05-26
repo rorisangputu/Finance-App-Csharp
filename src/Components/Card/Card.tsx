@@ -12,7 +12,7 @@ const Card = (props: Props) => {
             <h2>$AAPL</h2>
             <p>$110</p>
         </div>
-        <p>
+        <p className='info'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
             Molestiae eius nesciunt, culpa accusantium rem molestias deserunt 
             dignissimos reprehenderit, neque soluta nam! Neque fugiat at delectus?
