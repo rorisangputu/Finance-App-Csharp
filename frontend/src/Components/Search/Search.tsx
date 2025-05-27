@@ -1,17 +1,12 @@
-import React, { useState, type SyntheticEvent } from 'react'
+import {  type ChangeEventHandler, type SyntheticEvent } from 'react'
 
-
-const Search = () => {
-    const [search, setSearch] = useState<string>("");
-
-    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-       setSearch(e.target.value)
-       //console.log(e, search)
-    }
-    const onClick = (e: SyntheticEvent) => {
-        e.preventDefault();
-        console.log(e, search)
-    }
+interface searchProps {
+    onClick: (e: SyntheticEvent) => void,
+    handleChange: ChangeEventHandler<HTMLInputElement>,
+    search: string
+}
+const Search = ({onClick, handleChange, search}:searchProps) => {
+    
   return (
     <div className='border py-5'>
         <h1>Search:</h1>
