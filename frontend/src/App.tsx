@@ -12,12 +12,12 @@ function App() {
   const [searchResult, setSearchRes] = useState<CompanySearch[]>([]);
   const [serverError, setServerError] = useState<string>('');
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const handleSearchChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setSearch(e.target.value)
     //console.log(e, search)
   }
 
-  const onClick = async (e: SyntheticEvent) => {
+  const onSearchSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
     const result = await searchCompanies(search);
 
@@ -40,7 +40,7 @@ function App() {
     <>
       <Layout>
         <main>
-          <Search onClick={onClick} search={search} handleChange={handleChange}/>
+          <Search onSearchSubmit={onSearchSubmit} search={search} handleSearchChange={handleSearchChange}/>
           {serverError && <h1>{serverError}</h1>}
           <CardList searchResults={searchResult} onPortfolioCreate={onPortfolioCreate}/>
         </main>
