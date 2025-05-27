@@ -1,36 +1,30 @@
+import type { CompanySearch } from '../../company';
 import Card from '../Card/Card'
+import {v4 as uuid} from 'uuid'
 
+interface Props{
+    searchResults: CompanySearch[];
+}
 
-const CardList = () => {
+const CardList = ({searchResults}:Props) => {
   return (
     <div className='flex flex-col gap-2'>
-        {companies.map((co) => (
-            <Card key={co.name}
-                companyName={co.name} 
-                ticker={co.ticker} 
-                price={co.price}
-            />
-        ))}
+        {searchResults.length > 0 ? (
+            searchResults.map((res) => {
+               return (
+                    <Card 
+                        key={uuid()} 
+                        id={res.symbol} 
+                        searchResult={res}
+                        
+                    />
+                )
+            })
+        ) : (
+            <h1>No Results</h1>
+        ) }
     </div>
   )
 }
 
 export default CardList
-
-const companies = [
-    {
-        name: "APPLE",
-        ticker: "AAPL",
-        price: 150
-    },
-    {
-        name: "MICROSOFT",
-        ticker: "MSFT",
-        price: 280
-    },
-    {
-        name: "TESLA",
-        ticker: "TSLA",
-        price: 700
-    }
-]
