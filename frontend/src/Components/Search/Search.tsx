@@ -9,12 +9,19 @@ const Search = (props: Props) => {
 
     const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
        setSearch(e.target.value)
-       console.log(e)
+       console.log(e, search)
     }
   return (
-    <div>
+    <div className='border py-5'>
+        <h1>Search:</h1>
         <form action="">
-            <input type="text" value={search} onChange={(e) => onClick(e)} />
+            <input 
+                type="text" 
+                value={search} 
+                onChange={(e) => onClick(e)} 
+                className='border rounded-md p-2'
+            />
+            <button className='bg-blue-700 text-white p-2'>Submit</button>
         </form>
     </div>
   )
