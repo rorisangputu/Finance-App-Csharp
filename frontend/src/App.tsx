@@ -27,6 +27,8 @@ function App() {
     }else if(Array.isArray(result.data)){
       setSearchRes(result.data)
     }
+
+    console.log(searchRes);
   }
 
   return (
