@@ -5,7 +5,7 @@ const CardList = () => {
   return (
     <div className='flex flex-col gap-2'>
         {companies.map((co) => (
-            <Card 
+            <Card key={co.name}
                 companyName={co.name} 
                 ticker={co.ticker} 
                 price={co.price}
