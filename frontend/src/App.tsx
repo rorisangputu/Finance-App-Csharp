@@ -36,6 +36,7 @@ function App() {
       <Layout>
         <main>
           <Search onClick={onClick} search={search} handleChange={handleChange}/>
+          {serverError && <h1>{serverError}</h1>}
           <CardList/>
         </main>
       </Layout>
