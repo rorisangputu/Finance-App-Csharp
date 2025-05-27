@@ -1,8 +1,8 @@
-import {  type ChangeEventHandler, type SyntheticEvent } from 'react'
+import {  type ChangeEvent, type SyntheticEvent } from 'react'
 
 interface searchProps {
     onClick: (e: SyntheticEvent) => void,
-    handleChange: ChangeEventHandler<HTMLInputElement>,
+    handleChange:(e: ChangeEvent<HTMLInputElement>) => void,
     search: string
 }
 const Search = ({onClick, handleChange, search}:searchProps) => {

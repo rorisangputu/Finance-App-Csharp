@@ -15,7 +15,7 @@ function App() {
 
   const onClick = (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(e, search)
+    //console.log(e, search)
   }
 
   return (
