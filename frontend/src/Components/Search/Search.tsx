@@ -7,7 +7,7 @@ type Props = {
 const Search = (props: Props) => {
     const [search, setSearch] = useState<string>("");
 
-    const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onClick: React.ChangeEventHandler<HTMLInputElement> = (e) => {
        setSearch(e.target.value)
        console.log(e, search)
     }
