@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, type SyntheticEvent } from 'react'
 
-type Props = {
 
-}
-
-const Search = (props: Props) => {
+const Search = () => {
     const [search, setSearch] = useState<string>("");
 
-    const onClick: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
        setSearch(e.target.value)
-       console.log(e, search)
+       //console.log(e, search)
+    }
+    const onClick = (e: SyntheticEvent) => {
+        e.preventDefault();
+        console.log(e, search)
     }
   return (
     <div className='border py-5'>
@@ -18,10 +19,10 @@ const Search = (props: Props) => {
             <input 
                 type="text" 
                 value={search} 
-                onChange={(e) => onClick(e)} 
+                onChange={(e) => handleChange(e)} 
                 className='border rounded-md p-2'
             />
-            <button className='bg-blue-700 text-white p-2'>Submit</button>
+            <button onClick={(e) => onClick(e)} className='bg-blue-700 text-white p-2'>Submit</button>
         </form>
     </div>
   )
