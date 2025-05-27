@@ -9,7 +9,7 @@ import { searchCompanies } from "./api";
 
 function App() {
   const [search, setSearch] = useState<string>("");
-  const [searchRes, setSearchRes] = useState<CompanySearch[]>([]);
+  const [searchResult, setSearchRes] = useState<CompanySearch[]>([]);
   const [serverError, setServerError] = useState<string>('');
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -28,7 +28,7 @@ function App() {
       setSearchRes(result.data)
     }
 
-    console.log(searchRes);
+    console.log(searchResult);
   }
 
   return (
@@ -37,7 +37,7 @@ function App() {
         <main>
           <Search onClick={onClick} search={search} handleChange={handleChange}/>
           {serverError && <h1>{serverError}</h1>}
-          <CardList/>
+          <CardList searchResult={searchResult}/>
         </main>
       </Layout>
     </>
