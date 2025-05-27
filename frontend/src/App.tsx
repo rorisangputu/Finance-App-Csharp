@@ -3,19 +3,30 @@ import "./App.css";
 import CardList from "./Components/CardList/CardList";
 import Search from "./Components/Search/Search";
 import Layout from "./layout/Layout";
+import { type CompanySearch } from "./company";
+import { searchCompanies } from "./api";
 
 
 function App() {
   const [search, setSearch] = useState<string>("");
-  
+  const [searchRes, setSearchRes] = useState<CompanySearch[]>([]);
+  const [serverError, setServerError] = useState<string>('');
+
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setSearch(e.target.value)
     //console.log(e, search)
   }
 
-  const onClick = (e: SyntheticEvent) => {
+  const onClick = async (e: SyntheticEvent) => {
     e.preventDefault();
-    //console.log(e, search)
+    const result = await searchCompanies(search);
+
+    //Type checking
+    if(typeof result === 'string'){
+      setServerError(result);
+    }else if(Array.isArray(result.data)){
+      setSearchRes(result.data)
+    }
   }
 
   return (
