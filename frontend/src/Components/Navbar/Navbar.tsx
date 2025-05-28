@@ -10,16 +10,16 @@ const Navbar = () => {
         <div className="flex items-center space-x-20">
           <img src={logo} alt="" />
           <div className="hidden font-bold lg:flex">
-            <a href="" className="text-black hover:text-darkBlue">
+            <a href="" className="text-black hover:text-blue-800">
               Dashboard
             </a>
           </div>
         </div>
         <div className="hidden lg:flex items-center space-x-6 text-back">
-          <div className="hover:text-darkBlue">Login</div>
+          <div className="hover:text-blue-800">Login</div>
           <a
             href=""
-            className="px-8 py-3 font-bold rounded text-white bg-lightGreen hover:opacity-70"
+            className="px-8 py-3 font-bold rounded text-white bg-green-500 hover:opacity-70"
           >
             Signup
           </a>
