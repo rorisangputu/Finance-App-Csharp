@@ -1,13 +1,16 @@
+import type { SyntheticEvent } from "react"
+import DeletePortfolio from "../DeletePortfolio/DeletePortfolio";
 
 interface Props {
     portfolioValue: string
+    onPortfolioDelete: (e: SyntheticEvent) => void;
 }
 
-const CardPortfolio = ({portfolioValue}: Props) => {
+const CardPortfolio = ({portfolioValue, onPortfolioDelete}: Props) => {
   return (
     <div className="flex gap-2 justify-between">
         <h4>{portfolioValue}</h4>
-        <button className="bg-red-700 text-white px-1">X</button>
+        <DeletePortfolio portfolioValue={portfolioValue} onPortfolioDelete={onPortfolioDelete}/>
     </div>
   )
 }
