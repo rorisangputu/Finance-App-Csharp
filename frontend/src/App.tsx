@@ -53,7 +53,7 @@ function App() {
 
   return (
     <>
-      <Layout>
+      
         <Navbar/>
         <main>
           <Search onSearchSubmit={onSearchSubmit} search={search} handleSearchChange={handleSearchChange}/>
@@ -61,7 +61,7 @@ function App() {
           {serverError && <h1>{serverError}</h1>}
           <CardList searchResults={searchResult} onPortfolioCreate={onPortfolioCreate}/>
         </main>
-      </Layout>
+      
     </>
   );
 }
