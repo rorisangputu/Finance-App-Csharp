@@ -6,6 +6,8 @@ import Layout from "./layout/Layout";
 import { type CompanySearch } from "./company";
 import { searchCompanies } from "./api";
 import ListPortfolio from "./Components/Portfolio/ListPortfolio/ListPortfolio";
+import Navbar from "./Components/Navbar/Navbar";
+import Hero from "./Components/Hero/Hero";
 
 
 function App() {
@@ -52,6 +54,7 @@ function App() {
   return (
     <>
       <Layout>
+        <Navbar/>
         <main>
           <Search onSearchSubmit={onSearchSubmit} search={search} handleSearchChange={handleSearchChange}/>
           <ListPortfolio portfolioValues={portfolioValues} onPortfolioDelete={onPortfolioDelete}/>
