@@ -25,7 +25,7 @@ const CompFinder = ({ ticker }: Props) => {
   if (loading) return <Spinner />;
 
   return (
-    <div className="inline-flex rounded-md shadow-sm m-4 gap-2" role="group">
+    <div className="grid grid-cols-4  lg:grid-cols-6 xl:grid-cols-8 rounded-md m-4 gap-2" role="group">
       {companyData.length > 0 ? (
         companyData.map((comp) => (
           <CompFinderItem key={comp.symbol} ticker={comp.symbol} />
