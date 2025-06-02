@@ -16,7 +16,7 @@ const Tile = ({ title, subTitle }: Props) => {
                 {title}
               </h5>
 
-              <span className="font-bold text-xl">{subTitle}</span>
+              <span className="font-bold text-xl line-clamp-1">{subTitle}</span>
             </div>
           </div>
         </div>
