@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
-import { type CompanyProfile, type CompanySearch } from "./company"
+import { type CompanyCompData, type CompanyProfile, type CompanySearch, type CompanyTenK } from "./company"
 interface searchRes{
     data: CompanySearch[];
 }
@@ -30,3 +31,26 @@ export const getCompanyProfile = async(query: string) => {
         return "Error has occured from api"
     }
 }
+
+export const getCompData = async (query: string) => {
+  console.log(query)
+  try {
+    const response = await axios.get<CompanyCompData[]>(
+      `https://financialmodelingprep.com/stable/stock-peers?symbol=${query}&apikey=${apiKey}` );
+    return response.data;
+  } catch (error: any) {
+    console.log("error message: ", error.message);
+    return [];
+  }
+};
+
+export const getTenK = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyTenK[]>(
+      `https://financialmodelingprep.com/api/v3/sec_filings/${query}?type=10-K&page=0&apikey=${apiKey}`
+    );
+    return data;
+  } catch (error: any) {
+    console.log("error message: ", error.message);
+  }
+};
