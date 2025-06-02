@@ -10,6 +10,7 @@ interface Props {
 }
 
 const Card: React.FC<Props> = ({id, searchResult, onPortfolioCreate}: Props): JSX.Element => {
+  console.log(searchResult)
   return (
     <div
       className="flex flex-col items-center justify-between gap-5 w-full p-6 bg-slate-100 rounded-lg md:flex-row"
@@ -20,13 +21,14 @@ const Card: React.FC<Props> = ({id, searchResult, onPortfolioCreate}: Props): JS
         {searchResult.name} ({searchResult.symbol})
       </Link>
       <p className="text-veryDarkBlue">{searchResult.currency}</p>
-      <p className="font-bold text-veryDarkBlue">
+      <p className="font-bold text-blue-800">
           {searchResult.stockExchange}
         </p>
         <AddPortfolio 
           onPortfolioCreate={onPortfolioCreate} 
           symbol={searchResult.symbol}
         />
+        
     </div>
   )
 }
