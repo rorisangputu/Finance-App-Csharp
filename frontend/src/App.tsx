@@ -9,7 +9,9 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Outlet/>
+      <div className="w-[90%] md:w-[80%] mx-auto">
+        <Outlet/>
+      </div>
     </>
   );
 }
