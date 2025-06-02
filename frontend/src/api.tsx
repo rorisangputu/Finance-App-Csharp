@@ -22,8 +22,11 @@ export const getCompanyProfile = async(query: string) => {
     try {
         const data = await axios.get<CompanyProfile[]>(
             `https://financialmodelingprep.com/api/v3/profile/${query}?apikey=${apiKey}`
-        )
+        );
+        return data;
+
     } catch (error) {
-        
+        console.log(error);
+        return "Error has occured from api"
     }
 }
