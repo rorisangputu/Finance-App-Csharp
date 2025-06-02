@@ -6,7 +6,7 @@ import logo from '../../assets/logo.png';
 
 const Navbar = () => {
   return (
-    <nav className="relative container mx-auto p-6">
+    <nav className="relative w-[90%] md:w-[80%] mx-auto py-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-20">
           <Link to={'/'}>
@@ -14,7 +14,7 @@ const Navbar = () => {
           </Link>
           <div className="hidden font-bold lg:flex">
             <Link to="/search" className="text-black hover:text-blue-800">
-              Dashboard
+              Search
             </Link>
           </div>
         </div>
