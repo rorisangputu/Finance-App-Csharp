@@ -1,4 +1,5 @@
-import { testIncomeStatementData } from './TestData'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { testIncomeStatementData } from './testData'
 const data = testIncomeStatementData;
 
 
@@ -13,7 +14,7 @@ const configs = [
         render: (company: Company) => company.costOfRevenue
     }
 ]
-const Table = ({}) => {
+const Table = () => {
     const renderedRows = data.map((comapny) => {
         return (
             <tr key={comapny.cik }>
