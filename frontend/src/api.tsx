@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
-import { type CompanyKeyMetrics, type CompanyCompData, type CompanyProfile, type CompanySearch, type CompanyTenK } from "./company"
+import { type CompanyKeyMetrics, type CompanyCompData, type CompanyProfile, type CompanySearch, type CompanyTenK, type CompanyIncomeStatement } from "./company"
 interface searchRes{
     data: CompanySearch[];
 }
@@ -65,4 +65,16 @@ export const getKeyMetrics = async (query: string) => {
   } catch (error: any) {
     console.log("Error message: ", error.message)
   }
-}
+};
+
+export const getIncomeStatement = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyIncomeStatement[]>(
+      `https://financialmodelingprep.com/api/v3/income-statement/${query}?limit=40&apikey=${apiKey}`
+    );
+    return data;
+  
+  } catch (error: any) {
+    console.log("Error message: ", error.message)
+  }
+};
