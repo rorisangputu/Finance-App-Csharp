@@ -9,9 +9,6 @@ import CompFinder from "../../Components/CompFinder/CompFinder";
 import TenKFinder from "../../Components/TenKFinder/TenKFinder";
 import Spinner from "../../Components/Spinners/Spinner";
 
-
-
-
 const CompanyPage = () => {
   const {ticker} = useParams();
   const [company, setCompany] = useState<CompanyProfile>();
