@@ -3,6 +3,7 @@ import type { CompanyBalanceSheet } from "../../company";
 import { formatLargeMonetaryNumber } from "../../Helpers/NumberFormatting";
 import { useEffect, useState } from "react";
 import { getBalanceSheet } from "../../api";
+import RatioList from "../RatioList/RatioList";
 
 const config = [
   {
@@ -83,7 +84,15 @@ const BalanceSheet = () => {
         getData();
     }, [ticker])
   return (
-    <div>BalanceSheet</div>
+    <>
+        {balanceSheet ? (
+            <RatioList config={config} data={balanceSheet}/>
+        ) : (
+            <>
+            
+            </>
+        )}
+    </>
   )
 }
 
