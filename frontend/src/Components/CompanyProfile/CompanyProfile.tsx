@@ -1,6 +1,9 @@
-import React from 'react'
+import { useOutletContext } from 'react-router-dom';
 import type { CompanyKeyMetrics } from '../../company';
 import { formatLargeNonMonetaryNumber, formatRatio } from '../../Helpers/NumberFormatting';
+import { useEffect, useState } from 'react';
+import { getKeyMetrics } from '../../api';
+import RatioList from '../RatioList/RatioList';
 
 const tableConfig = [
   {
@@ -72,8 +75,29 @@ const tableConfig = [
 ];
 
 const CompanyProfile = () => {
+  const ticker = useOutletContext<string>()
+  const [companyData, setCompanyData] = useState<CompanyKeyMetrics>();
+  useEffect(() => {
+    const getCompanyKeyMetrics = async () => {
+      const value = await getKeyMetrics(ticker);
+      setCompanyData(value?.data[0]);
+    };
+
+    getCompanyKeyMetrics();
+  }, [ticker]);
+
   return (
-    <div>CompanyProfile</div>
+    <>
+      { companyData ? (
+        <>
+        <RatioList config={tableConfig} data={companyData}/>
+        </>
+      ) : (
+        <><p>Loading!..</p></>
+      )
+      
+      }
+    </>
   )
 }
 
