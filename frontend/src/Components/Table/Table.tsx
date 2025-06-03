@@ -1,26 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { testIncomeStatementData } from './testData'
-const data = testIncomeStatementData;
 
 
-type Company = (typeof data)[0];
-const configs = [
-    {
-        label: "Year",
-        render: (company: Company) => company.acceptedDate
-    },
-    {
-        label: "Cost of Revenue",
-        render: (company: Company) => company.costOfRevenue
-    }
-]
-const Table = () => {
-    const renderedRows = data.map((comapny) => {
+type TableProps ={
+    configs: any,
+    data: any
+}
+
+const Table = ({configs, data}: TableProps) => {
+    const renderedRows = data.map((company: any) => {
         return (
-            <tr key={comapny.cik }>
+            <tr key={company.cik }>
                 {configs.map((val: any) => {
                   return <td className='p-4 whitespace-nowrap text-sm font-normal text-gray-900'>
-                    {val.render(comapny)}
+                    {val.render(company)}
                 </td> 
                 })}
             </tr>
