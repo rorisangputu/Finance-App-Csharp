@@ -89,7 +89,7 @@ const BalanceSheet = () => {
             <RatioList config={config} data={balanceSheet}/>
         ) : (
             <>
-            
+                <h1>Company not found!</h1>
             </>
         )}
     </>
