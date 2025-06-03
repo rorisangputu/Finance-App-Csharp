@@ -1,25 +1,12 @@
-import { TestDataCompany } from '../Table/TestData'
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-const data = TestDataCompany[0];
+type Props ={
+    config: any;
+    data: any
+}
 
-type Comapny = typeof data;
-
-const config= [
-    {
-        label: "Company Name",
-        render: (company: Comapny) => company.companyName,
-        subTitle: "This is the company name"
-    },
-    {
-        label: "Company Name",
-        render: (company: Comapny) => company.companyName,
-        subTitle: "This is the company name"
-    },
-]
-
-
-const RatioList = () => {
-    const renderedRows = config.map(row => {
+const RatioList = ({config, data}: Props) => {
+    const renderedRows = config.map((row: any) => {
         return (
             <li className='py-3 sm:py-4'>
                 <div className='flex items-center space-x-4'>
@@ -39,7 +26,7 @@ const RatioList = () => {
         );
     });
   return (
-    <div className='bg-white shadow-md rounded-lg mb-4 p-4 sm:p-6 h-full'>
+    <div className='bg-white shadow-md rounded-lg ml-4 mb-4 p-4 sm:p-6 h-full'>
         <ul className='divide-y divide-gray-200'>
             {renderedRows}
         </ul>
