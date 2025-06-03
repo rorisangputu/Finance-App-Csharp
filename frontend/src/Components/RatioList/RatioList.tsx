@@ -1,4 +1,3 @@
-import React from 'react'
 import { TestDataCompany } from '../Table/TestData'
 
 const data = TestDataCompany[0];
@@ -10,7 +9,12 @@ const config= [
         label: "Company Name",
         render: (company: Comapny) => company.companyName,
         subTitle: "This is the company name"
-    }
+    },
+    {
+        label: "Company Name",
+        render: (company: Comapny) => company.companyName,
+        subTitle: "This is the company name"
+    },
 ]
 
 
@@ -36,7 +40,7 @@ const RatioList = () => {
     });
   return (
     <div className='bg-white shadow-md rounded-lg mb-4 p-4 sm:p-6 h-full'>
-        <ul className='divide-y divided-gray-200'>
+        <ul className='divide-y divide-gray-200'>
             {renderedRows}
         </ul>
     </div>
