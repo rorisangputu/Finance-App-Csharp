@@ -1,5 +1,9 @@
+import { useOutletContext } from 'react-router-dom';
 import { formatLargeMonetaryNumber, formatRatio } from '../../Helpers/NumberFormatting';
 import type { CompanyIncomeStatement } from '../../company';
+import { useEffect, useState } from 'react';
+import { getIncomeStatement } from '../../api';
+import Table from '../Table/Table';
 
 const configs = [
   {
@@ -68,8 +72,29 @@ const configs = [
 ];
 
 const IncomeStatement = () => {
+  const ticker = useOutletContext<string>();
+  const [incomeStatement, setIncomeStatement] = useState<CompanyIncomeStatement[]>();
+  
+  useEffect(() => {
+    const incomeStatementFetch = async () => {
+      const result = await getIncomeStatement(ticker);
+      setIncomeStatement(result!.data)
+    };
+    incomeStatementFetch();
+  }, [ticker]);
+
   return (
-    <div>IncomeStatement</div>
+    <>
+      {incomeStatement ? (
+        <>
+          <Table configs={configs} data={incomeStatement}/>
+        </>
+      ) : (
+        <>
+          <h1>Loading!...</h1>
+        </>
+      )}
+    </>
   )
 }
 
