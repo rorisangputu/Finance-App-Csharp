@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
-import { type CompanyKeyMetrics, type CompanyCompData, type CompanyProfile, type CompanySearch, type CompanyTenK, type CompanyIncomeStatement, type CompanyBalanceSheet } from "./company"
+import { type CompanyKeyMetrics, type CompanyCompData, type CompanyProfile, type CompanySearch, type CompanyTenK, type CompanyIncomeStatement, type CompanyBalanceSheet, type CompanyCashFlow } from "./company"
 interface searchRes{
     data: CompanySearch[];
 }
@@ -87,5 +87,16 @@ export const getBalanceSheet = async (query: string) => {
   
   } catch (error: any) {
     console.log("Error message: ", error.message)
+  }
+};
+
+export const getCashFlow = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyCashFlow[]>(
+      `https://financialmodelingprep.com/api/v3/cash-flow-statement/${query}?limit=100&apikey=${apiKey}`
+    );
+    return data;
+  } catch (error: any) {
+    console.log("error message: ", error.message);
   }
 };
