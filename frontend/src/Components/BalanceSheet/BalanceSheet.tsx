@@ -1,5 +1,8 @@
+import { useOutletContext } from "react-router-dom";
 import type { CompanyBalanceSheet } from "../../company";
 import { formatLargeMonetaryNumber } from "../../Helpers/NumberFormatting";
+import { useEffect, useState } from "react";
+import { getBalanceSheet } from "../../api";
 
 const config = [
   {
@@ -70,6 +73,15 @@ const config = [
 ];
 
 const BalanceSheet = () => {
+    const ticker = useOutletContext<string>();
+    const [balanceSheet, setBalanceSheet] = useState<CompanyBalanceSheet>();
+    useEffect(() => {
+        const getData = async() => {
+            const value = await getBalanceSheet(ticker!);
+            setBalanceSheet(value?.data[0]);
+        }; 
+        getData();
+    }, [ticker])
   return (
     <div>BalanceSheet</div>
   )
