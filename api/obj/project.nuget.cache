@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "koJuUiwJnrU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Capaciti\\Documents\\Rori_Files\\csharp\\finapp\\api\\api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Capaciti\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.5\\microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512",
+    "C:\\Users\\Capaciti\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

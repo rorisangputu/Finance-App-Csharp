@@ -47,11 +47,11 @@ const CompanyPage = () => {
         </div>
         ) : (
           <>
-            <div className="border border-red-600 bg-red-600 p-5
+            <div className="
               flex flex-col justify-center items-center text-white gap-5"
             >
-              <h1 className="text-5xl font-bold">No Data.</h1>
-              <p className="font-medium">Company not found.</p>
+              {/* <h1 className="text-5xl font-bold">No Data.</h1>
+              <p className="font-medium">Company not found.</p> */}
               <Spinner />
             </div>
             

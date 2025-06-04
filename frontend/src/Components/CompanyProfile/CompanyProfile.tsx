@@ -4,6 +4,7 @@ import { formatLargeNonMonetaryNumber, formatRatio } from '../../Helpers/NumberF
 import { useEffect, useState } from 'react';
 import { getKeyMetrics } from '../../api';
 import RatioList from '../RatioList/RatioList';
+import Spinner from '../Spinners/Spinner';
 
 const tableConfig = [
   {
@@ -93,7 +94,7 @@ const CompanyProfile = () => {
         <RatioList config={tableConfig} data={companyData}/>
         </>
       ) : (
-        <><p>Loading!..</p></>
+        <Spinner/>
       )
       
       }
