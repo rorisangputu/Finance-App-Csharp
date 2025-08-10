@@ -16,6 +16,7 @@ var ConnString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddSqlite<ApplicationDbContext>(ConnString);
 
 builder.Services.AddScoped<IStockRepository, StockRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRespository>();
 
 var app = builder.Build();
 
