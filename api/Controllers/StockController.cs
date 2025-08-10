@@ -80,16 +80,7 @@ namespace api.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            var stockModel = await _context.Stocks.FirstOrDefaultAsync(x => x.Id == id);
-
-            if (stockModel == null)
-            {
-                return NotFound();
-            }
-
-            _context.Stocks.Remove(stockModel);
-            await _context.SaveChangesAsync();
-
+            await _stockRepo.DeleteAsync(id);
             return NoContent();
         }
 
