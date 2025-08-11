@@ -22,7 +22,7 @@ namespace api.Mappers
 
             };
         }
-        public static Comment ToCommentToCreate(this CreateCommentDto commentDto, int stockId)
+        public static Comment ToCommentFromCreate(this CreateCommentDto commentDto, int stockId)
         {
             return new Comment
             {
@@ -32,6 +32,15 @@ namespace api.Mappers
 
                 StockId = stockId
 
+            };
+        }
+
+        public static Comment ToCommentFromUpdate(this UpdateCommentRequestDto updateDto)
+        {
+            return new Comment
+            {
+                Title = updateDto.Title,
+                Content = updateDto.Content,
             };
         }
 
