@@ -131,3 +131,12 @@
 /Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll
+/Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/roriputu/Documents/Web-Dev/csharp/Finance-App-Csharp/api/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
