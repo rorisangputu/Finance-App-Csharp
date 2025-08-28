@@ -31,8 +31,14 @@ namespace api.Data
                     Name = "Admin",
                     NormalizedName = "ADMIN"
                 },
+                new IdentityRole
+                {
+                    Name = "User",
+                    NormalizedName = "USER"
+                },
 
             };
+            builder.Entity<IdentityRole>().HasData(roles);
         }
 
     }
