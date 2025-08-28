@@ -106,5 +106,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+    // This will create the database and apply migrations
+    context.Database.EnsureCreated();
+
+    // Optional: Print the database path for verification
+    Console.WriteLine($"Database path: {context.Database.GetDbConnection().ConnectionString}");
+}
+
 app.Run();
 
