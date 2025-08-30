@@ -7,6 +7,7 @@ using api.Helpers;
 using api.Interfaces;
 using api.Mappers;
 using api.Models;
+using api.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -19,9 +20,11 @@ namespace api.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IStockRepository _stockRepo;
+        private readonly IPortfolioRepository _portfolioRepo;
 
-        public PortfolioController(UserManager<AppUser> userManager, IStockRepository stockRepo)
+        public PortfolioController(IPortfolioRepository portfolioRepo, UserManager<AppUser> userManager, IStockRepository stockRepo)
         {
+            _portfolioRepo = portfolioRepo;
             _userManager = userManager;
             _stockRepo = stockRepo;
         }
@@ -32,7 +35,8 @@ namespace api.Controllers
         {
             var username = User.GetUsername();
             var appUser = await _userManager.FindByNameAsync(username);
-            var userPortfolio = 
+            var userPortfolio = await _portfolioRepo.GetUserPortfolio(appUser);
+            return Ok(userPortfolio);
 
         }
 
