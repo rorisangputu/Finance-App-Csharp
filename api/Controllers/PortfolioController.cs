@@ -34,12 +34,15 @@ namespace api.Controllers
         public async Task<IActionResult> GetUserPortfolio()
         {
             var username = User.GetUsername();
+            if (string.IsNullOrEmpty(username))
+                return Unauthorized("User claim not found");
+
             var appUser = await _userManager.FindByNameAsync(username);
+            if (appUser == null)
+                return NotFound("User not found");
+
             var userPortfolio = await _portfolioRepo.GetUserPortfolio(appUser);
             return Ok(userPortfolio);
-
         }
-
-
     }
 }

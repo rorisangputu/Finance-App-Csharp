@@ -10,7 +10,14 @@ namespace api.Extensions
     {
         public static string GetUsername(this ClaimsPrincipal user)
         {
-            return user.Claims.SingleOrDefault(x => x.Type.Equals("https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname")).Value;
+            var claim = user.Claims
+                .SingleOrDefault(x => x.Type == "https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname");
+
+            if (claim == null)
+                throw new InvalidOperationException("GivenName claim not found in the JWT");
+
+            return claim.Value;
         }
     }
+
 }
