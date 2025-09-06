@@ -39,7 +39,22 @@ namespace api.Repository
 
         public async Task<List<Comment>> GetAllAsync(CommentQueryObject queryObject)
         {
-            return await _context.Comments.Include(a => a.AppUser).ToListAsync();
+            var comments = _context.Comments.Include(a => a.AppUser).AsQueryable();
+
+            //Only fetches specific symbol comments
+            if (!string.IsNullOrWhiteSpace(queryObject.Symbol))
+            {
+                //Only fetches specific symbol comments
+                comments = comments.Where(s => s.Stock.Symbol == queryObject.Symbol);
+            }
+
+            //Sorting comments
+            if (queryObject.IsDecsending == true)
+            {
+                comments = comments.OrderByDescending(c => c.Creation);
+            }
+
+            return await comments.ToListAsync();
         }
 
         public async Task<Comment?> GetByIdAsync(int id)
