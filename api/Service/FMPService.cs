@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Dtos.Stock;
 using api.Interfaces;
+using api.Mappers;
 using api.Models;
 using Newtonsoft.Json;
 
@@ -26,11 +28,19 @@ namespace api.Service
                 {
                     var content = await res.Content.ReadAsStringAsync();
                     var tasks = JsonConvert.DeserializeObject<FMPStock[]>(content);
+                    var stock = tasks[0];
+                    if (stock != null)
+                    {
+                        return stock.ToStockFromFMP();
+                    }
+                    return null;
                 }
+                return null;
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e);
+                return null;
             }
         }
     }

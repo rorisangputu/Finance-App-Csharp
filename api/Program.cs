@@ -90,6 +90,8 @@ builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRespository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IPortfolioRepository, PortfolioRepository>();
+builder.Services.AddScoped<IFMPservice, FMPService>();
+builder.Services.AddHttpClient<IFMPservice, FMPService>();
 
 var app = builder.Build();
 
