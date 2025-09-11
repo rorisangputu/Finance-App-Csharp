@@ -1,15 +1,14 @@
-
-import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
-
-
+import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import { useAuth } from "../../Context/useAuth";
 
 const Navbar = () => {
+  const { isLoggedIn, user, logout } = useAuth();
   return (
     <nav className="relative w-[90%] md:w-[80%] mx-auto py-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-20">
-          <Link to={'/'}>
+          <Link to={"/"}>
             <img src={logo} alt="" />
           </Link>
           <div className="hidden font-bold lg:flex">
@@ -18,15 +17,29 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="hidden lg:flex items-center space-x-6 text-back">
-          <div className="hover:text-blue-800">Login</div>
-          <a
-            href=""
-            className="px-8 py-3 font-bold rounded text-white bg-green-500 hover:opacity-70"
-          >
-            Signup
-          </a>
-        </div>
+        {isLoggedIn() ? (
+          <div className="hidden lg:flex items-center space-x-6 text-back">
+            <div className="hover:text-blue-800">
+              Welcome, {user?.userName}{" "}
+            </div>
+            <a
+              onClick={logout}
+              className="px-8 py-3 font-bold rounded text-white bg-red-500 hover:opacity-70"
+            >
+              Logout
+            </a>
+          </div>
+        ) : (
+          <div className="hidden lg:flex items-center space-x-6 text-back">
+            <div className="hover:text-blue-800">Login</div>
+            <a
+              href=""
+              className="px-8 py-3 font-bold rounded text-white bg-green-500 hover:opacity-70"
+            >
+              Signup
+            </a>
+          </div>
+        )}
       </div>
     </nav>
   );
