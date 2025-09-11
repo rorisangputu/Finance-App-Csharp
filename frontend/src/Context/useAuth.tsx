@@ -57,7 +57,23 @@ export const UserProvider = ({ children }: Props) => {
           navigate("/login");
         }
       })
-      .catch((e) => toast.warning("Server error occured"));
+      .catch(async (e) => {
+        if (e.response && e.response.data) {
+          // The backend returned structured validation errors
+          const errors = e.response.data;
+          console.log(e.response);
+
+          if (Array.isArray(errors)) {
+            errors.forEach((err: { code: string; description: string }) => {
+              toast.error(err.description);
+            });
+          } else {
+            toast.error("Registration failed");
+          }
+        } else {
+          toast.error("Server error occurred");
+        }
+      });
   };
 
   const loginUser = async (username: string, password: string) => {
