@@ -10,12 +10,8 @@ type LoginFormInputs = {
 };
 
 const validation = Yup.object().shape({
-  userName: Yup.string()
-    .required("Username is required")
-    .min(3, "Username must be at least 3 characters"),
-  password: Yup.string()
-    .required("Password is required")
-    .min(8, "Password must be at least 8 characters"),
+  userName: Yup.string().required("Username is required"),
+  password: Yup.string().required("Password is required"),
 });
 
 const LoginPage = () => {
